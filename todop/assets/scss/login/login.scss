@@ -1,0 +1,47 @@
+.logbg {
+  background-color: #2b79bd;
+  padding: 10rem 15rem;
+  height: 100vh;
+}
+
+.loginpage {
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  .welcomeback {
+    display: flex;
+    flex-direction: column;
+    h4 {
+      color: #3c3c3c;
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 1rem;
+      height: max-content;
+    }
+  }
+}
+
+.inputform {
+  .signinbtn {
+    margin-top: 1.5rem;
+    width: 100%;
+    background-color: #2b79bd !important;
+    color: #fff !important;
+    font-weight: 600;
+  }
+  .signinbtn:hover {
+    background-color: #1a6ab1 !important;
+  }
+
+  .fp {
+    display: flex;
+    justify-content: end;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .inpp {
+    font-size: 13px;
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "travel-o-desk",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "core-js": "^3.25.3",
+    "nuxt": "^2.15.8",
+    "nuxt-buefy": "^0.4.24",
+    "vue": "^2.7.10",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "sass": "^1.32.1",
+    "sass-loader": "^10.2.0"
+  }
+}

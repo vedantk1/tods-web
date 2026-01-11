@@ -1,0 +1,2427 @@
+{
+	"info": {
+		"_postman_id": "f9fbbd6f-d5f3-4686-8f7f-0ec80915da63",
+		"name": "TravelODesk API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5261230"
+	},
+	"item": [
+		{
+			"name": "Local Trip",
+			"item": [
+				{
+					"name": "Package List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/local_trip/package?pickUp=",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"local_trip",
+								"package"
+							],
+							"query": [
+								{
+									"key": "pickUp",
+									"value": "",
+									"description": "From search id (optional)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/local_trip/search?search=matuth",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"local_trip",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "matuth",
+									"description": "(required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/local_trip/carList?currency=IN&duration=cde3353b-9391-47f4-b803-2f7e0260925c&pickUp=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-14 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"local_trip",
+								"carList"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "duration",
+									"value": "cde3353b-9391-47f4-b803-2f7e0260925c",
+									"description": "From Package List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-14 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/local_trip/carDetails?vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&quantity=1&coupon=&addon=&currency=IN&pickUp=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-20 00:00&duration=cde3353b-9391-47f4-b803-2f7e0260925c",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"local_trip",
+								"carDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "duration",
+									"value": "cde3353b-9391-47f4-b803-2f7e0260925c",
+									"description": "From Package List id (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "5a4f911b-438e-482b-bbe3-a85f2c88958a",
+									"description": "from Customer list id (if this is a new customer not allowed)",
+									"type": "text"
+								},
+								{
+									"key": "third_party_reference_number",
+									"value": "",
+									"description": "(optional)",
+									"type": "text"
+								},
+								{
+									"key": "is_quote",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "sdfs",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_mobile_number",
+									"value": "9456426453",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dfsdf@yopmail.com",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "sdfdf",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "dasd",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "6754614342",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number",
+									"value": "6754654342",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/local_trip/bookingConfirmation?currency=IN&quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&specialInstruction=&note=&paxRemarks=&agentRemarks=&otherAgentRemarks=&duration=cde3353b-9391-47f4-b803-2f7e0260925c&pickUp=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"local_trip",
+								"bookingConfirmation"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "specialInstruction",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "note",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "paxRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "agentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "otherAgentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "duration",
+									"value": "cde3353b-9391-47f4-b803-2f7e0260925c",
+									"description": "From Package List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Airport Trip",
+			"item": [
+				{
+					"name": "Search List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/airport/search?search=matuth&place_id=ChIJFSAYuGnQADsRF3_75hRYz5A",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"airport",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "matuth",
+									"description": "(required)"
+								},
+								{
+									"key": "place_id",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "pickup selected id (optional)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/airport/carList?currency=IN&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-14 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"airport",
+								"carList"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-14 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/airport/carDetails?vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&quantity=1&coupon=&addon=35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66&currency=IN&pickUpDate=2024-12-20 00:00&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"airport",
+								"carDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "5a4f911b-438e-482b-bbe3-a85f2c88958a",
+									"description": "from Customer list id (if this is a new customer not allowed)",
+									"type": "text"
+								},
+								{
+									"key": "third_party_reference_number",
+									"value": "",
+									"description": "(optional)",
+									"type": "text"
+								},
+								{
+									"key": "is_quote",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "sdfs",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "alternate_mobile_number",
+									"value": "9456426453",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "cvxc@yopmail.com",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "sdfdf",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "dasd",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "6754614341",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number",
+									"value": "6754654342",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_mobile_number_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/airport/bookingConfirmation?currency=IN&quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&specialInstruction=&note=&paxRemarks=&agentRemarks=&otherAgentRemarks=&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"airport",
+								"bookingConfirmation"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional)"
+								},
+								{
+									"key": "specialInstruction",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "note",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "paxRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "agentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "otherAgentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Oneway Trip",
+			"item": [
+				{
+					"name": "Search List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/search?search=madurai airport&place_id=ChIJFSAYuGnQADsRF3_75hRYz5A",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "madurai airport",
+									"description": "(required)"
+								},
+								{
+									"key": "place_id",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "pickup selected id (optional)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/carList?currency=IN&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-14 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"carList"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-14 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/carDetails?vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&quantity=1&coupon=&addon=35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66&currency=IN&pickUpDate=2024-12-20 00:00&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"carDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "5a4f911b-438e-482b-bbe3-a85f2c88958a",
+									"description": "from Customer list id (if this is a new customer not allowed)",
+									"type": "text"
+								},
+								{
+									"key": "third_party_reference_number",
+									"value": "",
+									"description": "(optional)",
+									"type": "text"
+								},
+								{
+									"key": "is_quote",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "sdfs",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_mobile_number",
+									"value": "9456426453",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "cvxc@yopmail.com",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "sdfdf",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "dasd",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mobile_number",
+									"value": "6754614341",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number",
+									"value": "6754654342",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/bookingConfirmation?currency=IN&quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&specialInstruction=&note=&paxRemarks=&agentRemarks=&otherAgentRemarks=&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"bookingConfirmation"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional)"
+								},
+								{
+									"key": "specialInstruction",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "note",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "paxRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "agentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "otherAgentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Multi Oneway Trip",
+			"item": [
+				{
+					"name": "Search List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/search?search=madurai airport&place_id=ChIJFSAYuGnQADsRF3_75hRYz5A",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "madurai airport",
+									"description": "(required)"
+								},
+								{
+									"key": "place_id",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "pickup selected id (optional)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip Car List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/carList?currency=IN&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-14 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"carList"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-14 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/carDetails?vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&quantity=1&coupon=&addon=35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66&currency=IN&pickUpDate=2024-12-20 00:00&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"carDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "main_booking_id",
+									"value": "bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+									"description": "from Booking details id (required)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/bookingConfirmation?quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"bookingConfirmation"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "main_booking_id",
+									"value": "bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+									"description": "from Booking details id (required)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/oneway/bookingUpdate?quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&dropOff=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1&id=cfdf3195-d1a8-4cd1-9b7c-d65b37d1cba3",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"oneway",
+								"bookingUpdate"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional)"
+								},
+								{
+									"key": "dropOff",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								},
+								{
+									"key": "id",
+									"value": "cfdf3195-d1a8-4cd1-9b7c-d65b37d1cba3",
+									"description": "From booking details id (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booking details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/bookings/bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"bookings",
+								"bc2c4d49-50bd-4b7f-8387-14a4ac911cf3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trip List by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/multi_oneway/trip/bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"multi_oneway",
+								"trip",
+								"bc2c4d49-50bd-4b7f-8387-14a4ac911cf3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create/Update/Confirm Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "5a4f911b-438e-482b-bbe3-a85f2c88958a",
+									"description": "from Customer list id (if this is a new customer not allowed)",
+									"type": "text"
+								},
+								{
+									"key": "third_party_reference_number",
+									"value": "",
+									"description": "(optional)",
+									"type": "text"
+								},
+								{
+									"key": "is_quote",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "sdfs",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_mobile_number",
+									"value": "9456426453",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "cvxc@yopmail.com",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "sdfdf",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "dasd",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mobile_number",
+									"value": "6754614341",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number",
+									"value": "6754654342",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "is_confirm",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/multi_oneway?currency=IN&id=bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"multi_oneway"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "id",
+									"value": "bc2c4d49-50bd-4b7f-8387-14a4ac911cf3",
+									"description": "from Booking details id (optional) if id booking get update else create new booking"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Round Trip",
+			"item": [
+				{
+					"name": "Search List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/round_trip/search?search=madurai airport&place_id=ChIJFSAYuGnQADsRF3_75hRYz5A",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"round_trip",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "madurai airport",
+									"description": "(required)"
+								},
+								{
+									"key": "place_id",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "pickup selected id (optional)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/round_trip/carList?currency=IN&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&destination=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUpDate=2024-12-14 00:00&returnDate=2024-12-16 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"round_trip",
+								"carList"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "destination",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-14 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "returnDate",
+									"value": "2024-12-16 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/round_trip/carDetails?vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&quantity=1&coupon=&addon=35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66&currency=IN&pickUpDate=2024-12-20 00:00&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&destination=ChIJG4EV1MzFADsRMrsXMyCXmG8&returnDate=2024-12-24 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"round_trip",
+								"carDetails"
+							],
+							"query": [
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "35e03704-a99d-415b-84b9-30c5f25eed05,b654edb7-d659-4623-bc71-fbe6dc171f66",
+									"description": "Addon ids from CarList (optional) if multiple seprated by comma"
+								},
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "destination",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "returnDate",
+									"value": "2024-12-24 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "customer_id",
+									"value": "5a4f911b-438e-482b-bbe3-a85f2c88958a",
+									"description": "from Customer list id (if this is a new customer not allowed)",
+									"type": "text"
+								},
+								{
+									"key": "third_party_reference_number",
+									"value": "",
+									"description": "(optional)",
+									"type": "text"
+								},
+								{
+									"key": "is_quote",
+									"value": "0",
+									"description": "0-no or 1-yes (optional) default 0",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "sdfs",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "alternate_mobile_number",
+									"value": "9456426453",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "cvxc@yopmail.com",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "first_name",
+									"value": "sdfdf",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "dasd",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mobile_number",
+									"value": "6754614341",
+									"description": "if this is a new customer allowed (required)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "postal_code",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number",
+									"value": "6754654342",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_code",
+									"value": "IN",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "whatsapp_mobile_number_country_id",
+									"value": "91",
+									"description": "if this is a new customer allowed (optional)",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BOOKING_URL}}api-service/round_trip/bookingConfirmation?currency=IN&quantity=1&vehicleID=79561c15-1ce3-4da3-94dd-de7329002313&coupon=&addon=&specialInstruction=&note=&paxRemarks=&agentRemarks=&otherAgentRemarks=&destination=ChIJG4EV1MzFADsRMrsXMyCXmG8&pickUp=ChIJFSAYuGnQADsRF3_75hRYz5A&pickup_location=Mattuthavani, Madurai, Tamil Nadu, India&pickUpDate=2024-12-20 00:00&passengers=1&returnDate=2024-12-24 00:00",
+							"host": [
+								"{{BOOKING_URL}}api-service"
+							],
+							"path": [
+								"round_trip",
+								"bookingConfirmation"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "IN",
+									"description": "From currency List iso_code (optional) default IN"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"description": "limit 1-9 (optional)"
+								},
+								{
+									"key": "vehicleID",
+									"value": "79561c15-1ce3-4da3-94dd-de7329002313",
+									"description": "From car List id (required)"
+								},
+								{
+									"key": "coupon",
+									"value": "",
+									"description": "Coupon Code(optional)"
+								},
+								{
+									"key": "addon",
+									"value": "",
+									"description": "Addon ids from CarList (optional)"
+								},
+								{
+									"key": "specialInstruction",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "note",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "paxRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "agentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "otherAgentRemarks",
+									"value": "",
+									"description": "(optional)"
+								},
+								{
+									"key": "destination",
+									"value": "ChIJG4EV1MzFADsRMrsXMyCXmG8",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickUp",
+									"value": "ChIJFSAYuGnQADsRF3_75hRYz5A",
+									"description": "From Search List id (required)"
+								},
+								{
+									"key": "pickup_location",
+									"value": "Mattuthavani, Madurai, Tamil Nadu, India",
+									"description": "(optional) default pickup label"
+								},
+								{
+									"key": "pickUpDate",
+									"value": "2024-12-20 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								},
+								{
+									"key": "passengers",
+									"value": "1",
+									"description": "(optional) default 1"
+								},
+								{
+									"key": "returnDate",
+									"value": "2024-12-24 00:00",
+									"description": "YYYY-MM-DD HH:mm (required)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Common",
+			"item": [
+				{
+					"name": "Bookings",
+					"item": [
+						{
+							"name": "Booking List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-todAPI-Key",
+										"value": "{{token_api}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}api-service/bookings",
+									"host": [
+										"{{API_URL}}api-service"
+									],
+									"path": [
+										"bookings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-todAPI-Key",
+										"value": "{{token_api}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}api-service/bookings/0f8f9c27-7260-4e16-be60-97fb5b319f72",
+									"host": [
+										"{{API_URL}}api-service"
+									],
+									"path": [
+										"bookings",
+										"0f8f9c27-7260-4e16-be60-97fb5b319f72"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "State List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/states?country_id=IN",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"states"
+							],
+							"query": [
+								{
+									"key": "country_id",
+									"value": "IN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "City List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/cities?country_id=IN&state_id=TN",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"cities"
+							],
+							"query": [
+								{
+									"key": "country_id",
+									"value": "IN"
+								},
+								{
+									"key": "state_id",
+									"value": "TN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Country List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/countries",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/currency",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"currency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-todAPI-Key",
+								"value": "{{token_api}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}api-service/customerListWithPagination?page=1&limit=10",
+							"host": [
+								"{{API_URL}}api-service"
+							],
+							"path": [
+								"customerListWithPagination"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Demo Customer",
+									"description": "optional",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
